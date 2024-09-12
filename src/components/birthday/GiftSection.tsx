@@ -13,11 +13,16 @@ export const GiftSection = () => {
 
   const handleClick = () => {
     setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 5000); // Confeti se muestra por 5 segundos
+
+    // Reproducir el audio cuando se hace clic
+    const audio = new Audio("/audio/feli_cumple.mp3"); // Asegúrate de que la ruta del archivo sea correcta
+    audio.play();
+
+    setTimeout(() => setShowConfetti(false), 57000);
   };
 
   return (
-    <section className="text-center mb-8 relative">
+    <section className="text-center my-8 relative">
       {/* Confetti cubriendo la pantalla sin afectar el contenido */}
       {showConfetti && (
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none">
@@ -60,9 +65,15 @@ export const GiftSection = () => {
       <motion.div
         whileHover={{ scale: 1.1, rotate: 10 }} // Escala y rotación en hover
         className="cursor-pointer flex justify-center"
-        onClick={handleClick} // Manejador del clic para activar el confeti
+        onClick={handleClick} // Manejador del clic para activar el confeti y reproducir el audio
       >
-        <Image src={giftImage} alt="Gift" width={200} height={200} />
+        <Image
+          src={giftImage}
+          alt="Gift"
+          width={300} // Aumentar el ancho del GIF
+          height={300} // Aumentar la altura del GIF
+          className="rounded-xl" // Borde redondeado
+        />
       </motion.div>
     </section>
   );

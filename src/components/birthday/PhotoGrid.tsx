@@ -7,9 +7,8 @@ export const PhotosGrid = () => {
   const photos = [
     {
       src: "/img/kaydi2.jpg",
-      alt: "Kaydi disfrutando del aire libre con su sombrero",
-      description:
-        "Tu amor por la naturaleza siempre refleja tu espíritu libre.",
+      alt: "Kaydi apreciando el arte",
+      description: "El arte siempre ha sido una parte especial de tu vida.",
     },
     {
       src: "/img/kaydi3.jpg",
@@ -18,21 +17,21 @@ export const PhotosGrid = () => {
     },
     {
       src: "/img/kaydi4.jpg",
-      alt: "Kaydi contemplando el horizonte",
+      alt: "Kaydi conectando con la naturaleza y su caballo",
       description:
-        "Tu conexión con el mundo siempre trae momentos de reflexión.",
+        "Tu amor por los animales refleja tu espíritu bondadoso y puro.",
     },
     {
       src: "/img/kaydi5.jpg",
-      alt: "Kaydi apreciando el arte",
-      description: "El arte siempre ha sido una parte especial de tu vida.",
+      alt: "Kaydi con su encantadora sonrisa",
+      description: "Tu sonrisa tímida siempre ilumina los corazones cercanos.",
     },
   ];
 
   return (
-    <section className="mb-16">
+    <section className="my-16">
       {/* Animación del título con el emoji 📸 */}
-      <div className="flex justify-center text-center mb-4">
+      <div className="flex justify-center text-center mb-8">
         <TextAnimation
           text="Algunos de tus momentos favoritos"
           variant="h4"
@@ -54,34 +53,30 @@ export const PhotosGrid = () => {
         {photos.map((photo, index) => (
           <motion.div
             key={index}
-            className="group relative cursor-pointer"
-            whileHover={{ scale: 1.05 }}
+            className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg group"
+            whileHover={{ scale: 1.05 }} // Escalado en hover
+            transition={{ duration: 0.3 }}
           >
-            <div className="relative w-full h-72 overflow-hidden rounded-lg shadow-lg">
+            {/* Imagen */}
+            <div className="relative w-full h-72">
               <Image
                 src={photo.src}
                 alt={photo.alt}
-                fill // Actualización de `layout="fill"` a `fill`
-                style={{ objectFit: "contain" }} // `objectFit` actualizado
+                fill
+                style={{ objectFit: "contain" }}
                 className="rounded-lg"
               />
             </div>
 
             {/* Borde animado */}
-            <motion.div
-              className="absolute inset-0 rounded-lg border-4 border-transparent group-hover:border-pink-500 transition duration-300"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-            ></motion.div>
+            <motion.div className="absolute inset-0 border-4 border-transparent group-hover:border-pink-500 rounded-lg transition-all duration-300" />
 
-            {/* Descripción que aparece al hacer hover */}
-            <motion.p
-              className="absolute inset-x-0 bottom-0 p-4 text-center text-white bg-black bg-opacity-50 rounded-b-lg opacity-0 group-hover:opacity-100 transition duration-300 font-primary"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-            >
-              {photo.description}
-            </motion.p>
+            {/* Descripción solo en la parte inferior */}
+            <motion.div className="absolute inset-x-0 bottom-0 p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
+              <p className="text-white text-center font-primary">
+                {photo.description}
+              </p>
+            </motion.div>
           </motion.div>
         ))}
       </div>
