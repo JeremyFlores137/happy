@@ -101,7 +101,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
   position: relative;
   background-color: var(--background-start-rgb);
   background: radial-gradient(circle, #ffe6f2 0%, #ffe6ff 100%);
@@ -140,8 +139,4 @@ body::after {
   background-position: bottom left;
   background-size: 80px 80px;
   box-shadow: 0 0 20px rgba(255, 102, 178, 0.5); /* Sombra decorativa */
-}
-
-html {
-  height: 100%;
 }

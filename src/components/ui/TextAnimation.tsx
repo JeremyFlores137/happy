@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
-import { useEffect, useState } from "react";
 
 const quote = (totalDuration: number, textLength: number) => ({
   initial: {
@@ -10,7 +9,7 @@ const quote = (totalDuration: number, textLength: number) => ({
     opacity: 1,
     transition: {
       delay: 0.5,
-      staggerChildren: totalDuration / textLength,
+      staggerChildren: totalDuration / textLength, // Ajuste del stagger para una duración total fija
     },
   },
 });
@@ -22,7 +21,7 @@ const singleLetter = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.5, // Duración de la animación de cada letra
       ease: "easeOut",
     },
   },
@@ -30,7 +29,7 @@ const singleLetter = {
 
 interface TextAnimationProps {
   text: string;
-  className?: string;
+  className?: string; // `className` es opcional
   variant?:
     | "body1"
     | "body2"
@@ -43,9 +42,9 @@ interface TextAnimationProps {
     | "subtitle1"
     | "subtitle2"
     | "caption"
-    | "overline";
-  component?: React.ElementType;
-  totalDuration?: number;
+    | "overline"; // Restricción de variantes de Typography
+  component?: React.ElementType; // Tipo de elemento HTML o componente a renderizar
+  totalDuration?: number; // Duración total de la animación
 }
 
 export const TextAnimation: React.FC<TextAnimationProps> = ({
@@ -53,24 +52,14 @@ export const TextAnimation: React.FC<TextAnimationProps> = ({
   className = "",
   variant = "body1",
   component = "div",
-  totalDuration = 1,
+  totalDuration = 1, // Duración total predeterminada de 0.8 segundos
 }) => {
-  const textLength = text.replace(/ /g, "").length;
-  const [hydrated, setHydrated] = useState(false);
-
-  // Usar useEffect para habilitar la animación en el lado del cliente
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  if (!hydrated) {
-    return <Typography variant={variant}>{text}</Typography>;
-  }
+  const textLength = text.replace(/ /g, "").length; // Contar solo las letras, excluyendo los espacios
 
   return (
     <Typography
       variant={variant}
-      className={`${className} tracking-wide`}
+      className={`${className} tracking-wide`} // Añade más separación entre letras
       component={component}
     >
       <motion.span
@@ -78,7 +67,7 @@ export const TextAnimation: React.FC<TextAnimationProps> = ({
         viewport={{ once: true }}
         variants={quote(totalDuration, textLength)}
         initial="initial"
-        whileInView="animate"
+        whileInView="animate" // Controlamos la animación al estar en el viewport
       >
         {text.split(" ").map((word, wordIndex) => (
           <span key={`${word}-${wordIndex}`} className="inline-block">
@@ -91,7 +80,7 @@ export const TextAnimation: React.FC<TextAnimationProps> = ({
                 {letter}
               </motion.span>
             ))}
-            &nbsp;
+            &nbsp; {/* Añade un espacio entre las palabras */}
           </span>
         ))}
       </motion.span>

@@ -3,7 +3,7 @@ import { FaBirthdayCake, FaGifts, FaMusic } from "react-icons/fa";
 export const Footer = () => {
   return (
     <footer className="text-center py-5 text-pink-500 p-2">
-      <h3 className="text-xl mb-4 font-primary">
+      <h3 className="text-xl mb-4 font-primary lg:text-sm">
         Celebremos con música y diversión 🎉
       </h3>
       <div className="flex justify-center space-x-8">

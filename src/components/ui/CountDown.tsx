@@ -14,7 +14,7 @@ export const Countdown = () => {
 
   return (
     <div className="countdown">
-      <h2 className="text-center text-pink-500">
+      <h2 className="text-center text-pink-500 font-primary">
         Cuenta Regresiva para el próximo cumpleaños
       </h2>
       <AnimatedNumber value={timeLeft} />
