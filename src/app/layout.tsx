@@ -1,27 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
-import localFont from "next/font/local";
+import { Open_Sans, Mulish } from "next/font/google";
 
-// Importación de fuentes locales
-const myriadRegular = localFont({
-  src: "./fonts/Myriad-Regular.otf",
-  variable: "--font-myriad-regular",
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-open",
+  display: "swap",
 });
 
-const myriadBold = localFont({
-  src: "./fonts/Myriad-Bold.otf",
-  variable: "--font-myriad-bold",
-});
-
-const openSansRegular = localFont({
-  src: "./fonts/OpenSans-Regular.ttf",
-  variable: "--font-opensans-regular",
-});
-
-const openSansBold = localFont({
-  src: "./fonts/OpenSans-Bold.ttf",
-  variable: "--font-opensans-bold",
+const mulish = Mulish({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mulish",
 });
 
 export const metadata: Metadata = {
@@ -35,10 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${myriadRegular.variable} ${myriadBold.variable} ${openSansRegular.variable} ${openSansBold.variable}`}
-    >
+    <html lang="es" className={`${openSans.variable} ${mulish.variable}`}>
       <head>
         <link rel="icon" href="/img/favicon.ico" />
       </head>

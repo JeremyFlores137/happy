@@ -131,7 +131,7 @@ export const DescriptionSection = () => {
           />
         </motion.div>
       </div>
-      <div className="mb-4"></div>
+      <div className="mb-8"></div>
       {/* Texto final con animación */}
       <TextAnimation
         text="¡Eres la más brillante, talentosa y especial!"
@@ -149,7 +149,7 @@ export const DescriptionSection = () => {
       >
         ✨
       </motion.span>
-      <div className="mb-4"></div>
+      <div className="mb-8"></div>
     </section>
   );
 };
