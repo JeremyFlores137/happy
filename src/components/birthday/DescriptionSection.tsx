@@ -1,13 +1,5 @@
 // src/app/components/ui/DescriptionSection.tsx
-import {
-  FaCat,
-  FaSmile,
-  FaStar,
-  FaMusic,
-  FaCamera,
-  FaUtensils,
-  FaGlobe,
-} from "react-icons/fa";
+import { FaCat, FaMusic, FaCamera, FaUtensils, FaGlobe } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { TextAnimation } from "../ui/TextAnimation";
 import Image from "next/image";
