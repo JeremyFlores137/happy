@@ -27,7 +27,7 @@ export default function BirthdayPage() {
           text="¡Hoy es el cumpleaños de Kaydi!"
           variant="h3"
           component="h1"
-          className="font-bold text-pink-500 font-secondary inline-block"
+          className="font-bold text-pink-500 font-secondary inline-block lg:text-3xl"
         />
 
         <motion.span

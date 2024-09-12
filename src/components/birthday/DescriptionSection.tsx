@@ -2,17 +2,16 @@
 import { FaCat, FaMusic, FaCamera, FaUtensils, FaGlobe } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { TextAnimation } from "../ui/TextAnimation";
-import Image from "next/image";
 
 export const DescriptionSection = () => {
   return (
-    <section className="text-center mb-16">
+    <section className="text-center mb-4">
       {/* Texto inicial con animación */}
       <TextAnimation
         text="Si te describiera en palabras serían..."
         variant="h4"
         component="h2"
-        className="text-2xl mb-6 font-primary text-pink-600 inline-block"
+        className="text-2xl mb-6 font-primary text-pink-600 inline-block lg:text-lg"
       />
 
       <motion.span
@@ -26,7 +25,7 @@ export const DescriptionSection = () => {
       </motion.span>
 
       {/* Iconos animados representando sus cualidades y gustos */}
-      <div className="flex justify-center space-x-6 mt-6 text-pink-500">
+      <div className="flex justify-center space-x-6 mt-6 lg:flex-col lg:space-y-10 text-pink-500">
         <motion.div
           whileHover={{
             scale: 1.2,
@@ -83,7 +82,7 @@ export const DescriptionSection = () => {
         >
           <FaMusic className="text-4xl" />
           <TextAnimation
-            text="Melómana del pop y cumbia"
+            text="Melómana del pop, reguetón y cumbia"
             variant="body2"
             component="p"
             className="text-sm mt-2 font-primary"
@@ -132,33 +131,12 @@ export const DescriptionSection = () => {
           />
         </motion.div>
       </div>
-
-      {/* Imagen destacando lo especial que es */}
-      <div className="flex justify-center mt-10">
-        <motion.div
-          className="relative inline-block rounded-full p-1 cursor-pointer"
-          whileHover={{
-            scale: 1.05,
-            boxShadow:
-              "0 0 0 8px rgba(255, 102, 178, 1), 0 0 0 12px rgba(255, 153, 204, 0.9), 0 0 0 16px rgba(255, 204, 242, 0.8)",
-          }}
-          transition={{ duration: 0.4 }}
-        >
-          <Image
-            src="/img/kaydi_v2.png"
-            alt="Kaydi Special Moment"
-            width={200}
-            height={200}
-            className="rounded-full mx-auto"
-          />
-        </motion.div>
-      </div>
-
+      <div className="mb-4"></div>
       {/* Texto final con animación */}
       <TextAnimation
         text="¡Eres la más brillante, talentosa y especial!"
         variant="body1"
-        component="caption"
+        component="p"
         className="mt-8 text-gray-600 inline-block font-primary"
       />
 
@@ -171,6 +149,7 @@ export const DescriptionSection = () => {
       >
         ✨
       </motion.span>
+      <div className="mb-4"></div>
     </section>
   );
 };

@@ -31,17 +31,17 @@ export const PhotosGrid = () => {
   return (
     <section className="my-16">
       {/* Animación del título con el emoji 📸 */}
-      <div className="flex justify-center text-center mb-8">
+      <div className="flex justify-center lg:flex-col items-center text-center my-4">
         <TextAnimation
           text="Algunos de tus momentos favoritos"
           variant="h4"
           component="h2"
-          className="text-2xl font-primary inline-block"
+          className="text-2xl font-primary inline-block lg:text-xl"
         />
         <motion.span
           role="img"
           aria-label="camera"
-          className="ml-2 inline-block text-4xl"
+          className="ml-2 lg:ml-0 inline-block text-4xl"
           whileHover={{ scale: 1.5 }} // Escala el emoji al hacer hover
           transition={{ duration: 0.3 }} // Duración de la animación
         >

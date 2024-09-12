@@ -1,5 +1,4 @@
-// src/app/components/ui/GiftSection.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import giftImage from "/public/img/gift.gif";
@@ -9,44 +8,72 @@ import { useWindowSize } from "react-use"; // Para obtener el tamaño de la vent
 
 export const GiftSection = () => {
   const [showConfetti, setShowConfetti] = useState(false);
-  const { width, height } = useWindowSize(); // Obtener el tamaño de la ventana para el confeti
+  const [isClickable, setIsClickable] = useState(true); // Controlar si se puede hacer clic
+  const [confettiPieces, setConfettiPieces] = useState(200); // Comenzar con 200 piezas
+  const { width, height } = useWindowSize(); // Obtener el tamaño de la ventana
 
   const handleClick = () => {
+    if (!isClickable) return; // Evitar acción si no es clicable
+    setIsClickable(false); // Desactivar el clic mientras se reproduce
+
     setShowConfetti(true);
+    setConfettiPieces(1000); // Aumentar la cantidad de piezas iniciales
 
     // Reproducir el audio cuando se hace clic
-    const audio = new Audio("/audio/feli_cumple.mp3"); // Asegúrate de que la ruta del archivo sea correcta
+    const audio = new Audio("/audio/feli_cumple.mp3");
     audio.play();
 
-    setTimeout(() => setShowConfetti(false), 57000);
+    // Control para cuando el audio termina
+    audio.onended = () => {
+      if (!showConfetti) {
+        setIsClickable(true);
+      }
+    };
+
+    // Desactivar confeti después de 57 segundos (independientemente del audio)
+    setTimeout(() => {
+      setShowConfetti(false);
+      setIsClickable(true); // Reactivar el clic después de 57 segundos
+    }, 57000);
   };
 
+  useEffect(() => {
+    // Inyectar más piezas de confeti de manera gradual
+    let interval: NodeJS.Timeout;
+    if (showConfetti) {
+      interval = setInterval(() => {
+        setConfettiPieces((prev) => (prev < 5000 ? prev + 50 : prev)); // Agregar 50 piezas cada 500 ms, hasta un máximo de 5000
+      }, 500);
+    }
+    return () => clearInterval(interval); // Limpiar el intervalo cuando se desmonta
+  }, [showConfetti]);
+
   return (
-    <section className="text-center my-8 relative">
+    <section className="text-center my-4 relative">
       {/* Confetti cubriendo la pantalla sin afectar el contenido */}
       {showConfetti && (
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none">
           <Confetti
             width={width}
             height={height}
+            numberOfPieces={confettiPieces} // Usamos el estado para controlar las piezas
             recycle={false}
-            numberOfPieces={500}
           />
         </div>
       )}
 
       {/* Título con animación y emoji animado */}
-      <div className="flex justify-center">
+      <div className="flex lg:flex-col items-center justify-center my-4">
         <TextAnimation
           text="Mira lo feliz que estoy por ti"
           variant="h4"
           component="h2"
-          className="text-2xl mb-4 font-primary inline-block"
+          className="text-2xl mb-4 font-primary inline-block lg:text-xl"
         />
         <motion.span
           role="img"
           aria-label="gift"
-          className="ml-2 inline-block text-4xl"
+          className="ml-2 lg:ml-0 inline-block text-4xl"
           whileHover={{ scale: 1.5 }}
           transition={{ duration: 0.3 }}
         >
