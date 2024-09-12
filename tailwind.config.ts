@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['"Open Sans"', "sans-serif"],
-        secondary: ['"Myriad"', "sans-serif"],
+        primary: ["var(--font-opensans-regular)", "sans-serif"],
+        secondary: ["var(--font-myriad-regular)", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
