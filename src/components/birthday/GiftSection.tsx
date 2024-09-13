@@ -83,7 +83,7 @@ export const GiftSection = () => {
 
       {/* Descripción con animación */}
       <TextAnimation
-        text="(Dale clic al regalo)"
+        text="(Dale clic al gif de abajo)"
         variant="body1"
         className="mb-2 text-gray-600 font-primary inline-block"
       />

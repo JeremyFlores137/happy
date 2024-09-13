@@ -33,6 +33,11 @@
   scrollbar-color: #ff69b4 #f9e6f9; /* Color de la thumb y track en Firefox */
 }
 
+:root {
+  --font-open: "Open Sans", sans-serif;
+  --font-mulish: "Mulish", sans-serif;
+}
+
 /* src/app/globals.css */
 
 body {
