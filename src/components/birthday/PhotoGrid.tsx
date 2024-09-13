@@ -29,7 +29,7 @@ export const PhotosGrid = () => {
   ];
 
   return (
-    <section className="my-16">
+    <section className="my-16 max-w-7xl mx-auto">
       {/* Animación del título con el emoji 📸 */}
       <div className="flex justify-center lg:flex-col items-center text-center my-4">
         <TextAnimation
