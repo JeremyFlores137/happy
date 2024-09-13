@@ -11,13 +11,13 @@ export const DescriptionSection = () => {
         text="Si te describiera en palabras serían..."
         variant="h4"
         component="h2"
-        className="text-2xl mb-6 font-primary text-pink-600 inline-block lg:text-lg"
+        className="text-2xl mb-6 font-primary text-pink-600 inline-block lg:text-xl"
       />
 
       <motion.span
         role="img"
         aria-label="star"
-        className="ml-2 inline-block text-4xl"
+        className="ml-2 lg:ml-0 inline-block text-4xl"
         whileHover={{ scale: 1.5 }}
         transition={{ duration: 0.3 }}
       >

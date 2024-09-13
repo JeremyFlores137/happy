@@ -27,7 +27,7 @@ export default function BirthdayPage() {
           text="¡Hoy es el cumpleaños de Kaydi!"
           variant="h3"
           component="h1"
-          className="font-bold text-pink-500 font-secondary lg:text-2xl"
+          className="font-bold text-pink-500  font-secondary lg:text-3xl"
         />
 
         <motion.span
@@ -66,7 +66,7 @@ export default function BirthdayPage() {
           <TextAnimation
             text="24 años"
             variant="h5"
-            className="text-2xl lg:text-xl font-semibold font-primary"
+            className="text-2xl lg:text-xl font-bold font-primary"
           />
           <TextAnimation
             text="12.09.2024"
