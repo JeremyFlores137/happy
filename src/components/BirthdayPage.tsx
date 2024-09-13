@@ -46,7 +46,7 @@ export default function BirthdayPage() {
             whileHover={{
               scale: 1.05, // Aumentar un poco la imagen
               boxShadow:
-                "0 0 0 6px rgba(255, 102, 178, 0.9), 0 0 0 10px rgba(255, 153, 204, 1), 0 0 0 14px rgba(255, 204, 242, 1)", // Borde con gradiente de rosas
+                "0 0 0 6px rgba(255, 102, 178, 0.9), 0 0 0 10px rgba(255, 153, 204, 1), 0 0 0 14px rgba(255, 204, 242, 1) ", // Borde con gradiente de rosas
             }}
             transition={{ duration: 0.4 }} // Duración de la animación
             onClick={handleImageClick} // Manejador del clic para cambiar la imagen
